@@ -15,37 +15,6 @@ function GetThen(yourUrl, onload){
 	};
 	Httpreq.send(null);
 }
-	
-//Initially loads the last 100 posts on subreddit
-function requestSubredditData(after = null) {
-	var url = 'https://www.reddit.com/r/PrincessesOfPower/new.json?limit=100';
-	GetThen(after ? url + '&after=' + after : url, checkSubreddit);
-}
-		
-//looks at the loaded posts, this runs four times every half-second
-function checkSubreddit(response){
-	var subbredditJSON = JSON.parse(response);
-	var lastHiatusMentionThisCheck;
-	//list of words that counts as a mention of the hiatus
-	var keywords = ["hiatus"];
-	for(var i = 0; i < 100; i++){
-		for(var j = 0; j < keywords.length; j++){
-			//checks only post titles and post content if self-post
-			if(subbredditJSON.data.children[i].data.selftext.toLowerCase().includes(keywords[j]) == true || subbredditJSON.data.children[i].data.title.toLowerCase().includes(keywords[j]) == true){
-				lastHiatusMentionThisCheck = new Date(subbredditJSON.data.children[i].data.created_utc * 1000);
-				document.getElementById("hiatusLink").href = "https://reddit.com" + subbredditJSON.data.children[i].data.permalink;
-				i = 100;
-			};
-		};
-	};
-	//loads the next 100 if hiatus is not mentioned then runs the function again
-	if (lastHiatusMentionThisCheck == null) {
-		requestSubredditData(subbredditJSON.data.after);
-	} 
-	else {
-		lastHiatusMention = lastHiatusMentionThisCheck;
-	}
-};
 
 function switchMode(){
 	if(mode == 0){
@@ -177,9 +146,5 @@ function createTable(array) {
 window.setInterval(function(){
 	timer("up", latestRelease, "count");
 	timer("down", hiatusRankCheck(), "count2");
-	timer("up", lastHiatusMention, "count3");
-	//timer("down", nextRelease, "count4"); //Comment out when no new release date
+	timer("down", nextRelease, "count3"); //Comment out when no new release date
 }, 250);
-	
-//every 30 seconds, the most recent 100 posts on the subreddit are loaded up again in case there has been a new post that mentions hiatus
-window.setInterval(requestSubredditData, 30000);
