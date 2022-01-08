@@ -146,5 +146,5 @@ function createTable(array) {
 window.setInterval(function(){
 	timer("up", latestRelease, "count");
 	timer("down", hiatusRankCheck(), "count2");
-	timer("down", nextRelease, "count3"); //Comment out when no new release date
+	//timer("down", nextRelease, "count3"); //Comment out when no new release date
 }, 250);
