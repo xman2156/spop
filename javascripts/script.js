@@ -1,6 +1,5 @@
 var oneDay = 24*60*60*1000;
 var latestRelease = new Date("2020-05-15T00:00:00-06:00"); // Newest Episode Release
-//var nextRelease = new Date("2020-05-15T00:00:00-06:00"); // Next Episode release
 var mode = 0; //DD:HH:MM:SS mode is default
 var lastHiatusMention = null;
 	
@@ -146,5 +145,4 @@ function createTable(array) {
 window.setInterval(function(){
 	timer("up", latestRelease, "count");
 	timer("down", hiatusRankCheck(), "count2");
-	//timer("down", nextRelease, "count3"); //Comment out when no new release date
 }, 250);
