@@ -8,8 +8,10 @@
 
     <link rel="stylesheet" type="text/css" href="style/style.css">  
     <link rel="icon" href="images/icon.ico" type="image/x-icon"/>
-
-    <script type="text/javascript" src="javascripts/script.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="javascripts/script.js" defer></script>
+    <script src="javascripts/modal.js" defer></script>
+    <script src="javascripts/youtube.js" defer></script>
     <script src="javascripts/jquery-3.6.0.min.js"></script>
     <script>
 	    $(window).on("load", function() {
@@ -26,7 +28,6 @@
       gtag('js', new Date());
       gtag('config', 'G-H4KQ6M3MKM');
     </script>
-    
   </head>
   
   <body onload="createTable(hiatusList); requestSubredditData();">
@@ -38,7 +39,7 @@
           <span class="close">&times;</span>
           <p>This website tracks the hiatuses of the show She-Ra Princesses of Power. <br> A hiatus is a time period starting from the end 
             of one announced schedule to the begining of another. 
-            <br>This site is not offcial and is maintained by one person.<br>
+            <br>This site is <b>not official</b> and is maintained by one person.<br>
             <b>Some planned updates so far:</b> <br>
             Mobile improvements</p>
         </div>
@@ -47,11 +48,19 @@
       
       <div class="topnav">
         <a class = "website" href="https://xman2156.github.io/TOH/">The Owl House</a>
-        <a class = "website" href="https://xman2156.github.io/amphibia/">Amphibia</a>
         <a class = "website" href="https://xman2156.github.io/tgamm/">Molly McGee</a>
         <a class = "website" href="https://xman2156.github.io/miraculous/">Miraculous</a>
-        <a class = "active website" href="https://xman2156.github.io/spop/">She-Ra</a>
         <a class = "website" href="https://xman2156.github.io/bcg/">Big City Greens</a>
+        <a class = "website" href="https://xman2156.github.io/arcane/">Arcane</a>
+        <div class="active dropdown">
+          <button class="dropbtn">The Graveyard
+            <i class="fa-solid fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="https://xman2156.github.io/amphibia/">Amphibia</a>
+            <a class = "active" href="https://xman2156.github.io/spop/">She-Ra</a>
+          </div>
+        </div>
         <a class = "report website" target="_blank" href="https://forms.gle/wdYkcXaaLEWhtHKs8">Report a bug or ask a question</a>
       </div>
          
@@ -59,11 +68,14 @@
         <h1>It has been</h1>
         <h1 style="font-size:600%">
         <span id="count">xxx</span></h1>
-        <h1>since the end of She-Ra</h1>
+        <h1>
+          since <br> She-Ra ended
+        </h1>
       </div>
 
       <div class="tab">
         <p style="font-size:150%">
+          Note: She-Ra has ended.<br>
 				  <a onclick=switchMode() id="changeCount"> Click here <span id="moreorless">to count less precisely.</span></a>
 			  </p>
         <hr class="spacer">
@@ -71,16 +83,9 @@
         <div class="list">
           <h1> The Grand List of Hiatuses </h1>
           <table id="hiatus"></table>
-        </div>
-        <br>
+          <br>
         <hr class="spacer">
-  
-        <div class="countdowns">
-          <h2>Time To Length of <span id="hiatusRank">the first</span> Longest Hiatus<br>(Currently Stands At <span id="nextHiatusLength">0</span> Days)</h2>
-          <h1 style="font-size:250%">
-            <span id="count2">It's the first hiatus</span>
-          </h1>
-          <hr class="spacer">
+
         </div>
   
         <div class="trailers">
@@ -101,7 +106,5 @@
         </div>
       </div>
     </div>
-    <script src="javascripts/modal.js"></script>
-    <script src="javascripts/youtube.js"></script>
   </body>
 </html>
