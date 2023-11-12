@@ -72,7 +72,7 @@ var hiatusList = [
 ['Reunion','The Price of Power','Apr 26 2019','Aug 2 2019',98,''],
 ['The Portal','The Coronation','Aug 2 2019','Nov 5 2019',95,''],
 ['Princess Scorpia','Horde Prime','Nov 5 2019','May 15 2020',192,''],
-['Heart Part 2','???','May 15 2020','???',,'']
+['Heart Part 2','','May 15 2020','',,'']
 ];
 
 //makes an HTML table from the array
